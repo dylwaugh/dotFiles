@@ -1,3 +1,5 @@
 [user]
 	email = dylwaugh@gmail.com
 	name = Dylan Waugh
+[core]
+	editor = vim
