@@ -1,0 +1,3 @@
+[submodule "pool_control/ads1x15"]
+	path = pool_control/ads1x15
+	url = https://github.com/adafruit/Adafruit_CircuitPython_ADS1x15
