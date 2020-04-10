@@ -14,28 +14,23 @@ def test_buttons_are_on():
 
 
 def test_spa_button():
-    button = SpaPoolButton('spa_pool')
+    button = SpaPoolButton()
     assert button.button_state() == 'off'
 
 
 def test_spa_button_pool():
-    button = SpaPoolButton('spa_pool')
+    button = SpaPoolButton()
     button.set_button_state('pool')
     assert button.button_state() == 'pool'
 
 
 def test_spa_button_sap():
-    button = SpaPoolButton('spa_pool')
+    button = SpaPoolButton()
     button.set_button_state('spa')
     assert button.button_state() == 'spa'
 
 
-def test_spa_button_raise():
-    with pytest.raises(ValueError):
-        SpaPoolButton('stuff')
-
-
 def test_spa_button_set_raise():
-    button = SpaPoolButton('spa_pool')
+    button = SpaPoolButton()
     with pytest.raises(ValueError):
         button.set_button_state('stuff')

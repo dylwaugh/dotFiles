@@ -1,4 +1,5 @@
 from transitions import Machine
+from transitions.extensions import GraphMachine as GMachine
 from sensors.temperature import *
 from buttons.buttons import *
 
@@ -15,7 +16,8 @@ class HeaterControl(object):
         self.temp = custom_temperature or Temperature()
 
         # What state is the pool/spa/off button in?
-        self.buttons = custom_button or Buttons()
+        self.pump_button = custom_button or Buttons('pump')
+        self.spa_button = SpaPoolButton()
 
         # What states is the pump in?
         self.pump_state = 'off'
@@ -45,4 +47,10 @@ class HeaterControl(object):
         # Someone wants to turn off the heat
         self.machine.add_transition(trigger='button_press', source='heating', dest='off')
 
+if __name__ == "__main__":
+    m = HeaterControl()
+    # without further arguments pygraphviz will be used
+    gmachine = GMachine(model=m)
 
+    # draw the whole graph ...
+    m.get_graph().draw('my_state_diagram.png', prog='dot')

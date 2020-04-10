@@ -20,9 +20,8 @@ class Buttons:
 
 class SpaPoolButton(Buttons):
 
-    def __init__(self, name):
-        if name != 'spa_pool':
-            raise ValueError
+    def __init__(self):
+        name = 'spa_pool'
         super().__init__(name)
 
     def set_button_state(self, value):
